@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      env: dev
+  template:
+    metadata:
+      name: my-app
+      labels:
+        env: dev
+    spec:
+      containers:
+      - name: java-app
+        image: aparna078/myapp:test
+        ports:
+        - containerPort: 80
+          protocol: TCP
